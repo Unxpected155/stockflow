@@ -39,6 +39,13 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  /* StockFlow status tokens */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -55,7 +62,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  /* StockFlow brand violet */
+  --primary: oklch(0.488 0.243 264.376);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -67,11 +75,19 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* StockFlow chart palette */
+  --chart-1: oklch(0.65 0.15 240);
+  --chart-2: oklch(0.65 0.18 145);
+  --chart-3: oklch(0.65 0.22 10);
+  --chart-4: oklch(0.78 0.15 75);
+  --chart-5: oklch(0.6 0.22 295);
+  /* StockFlow status colors */
+  --success: oklch(0.65 0.18 145);
+  --success-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.78 0.15 75);
+  --warning-foreground: oklch(0.145 0 0);
+  --info: oklch(0.65 0.15 240);
+  --info-foreground: oklch(0.985 0 0);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -90,8 +106,9 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  /* StockFlow brand violet (dark) */
+  --primary: oklch(0.65 0.22 264.376);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -102,11 +119,19 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* StockFlow chart palette (dark) */
+  --chart-1: oklch(0.7 0.14 240);
+  --chart-2: oklch(0.7 0.16 145);
+  --chart-3: oklch(0.7 0.2 10);
+  --chart-4: oklch(0.78 0.15 75);
+  --chart-5: oklch(0.7 0.2 295);
+  /* StockFlow status colors (dark) */
+  --success: oklch(0.7 0.16 145);
+  --success-foreground: oklch(0.145 0 0);
+  --warning: oklch(0.78 0.15 75);
+  --warning-foreground: oklch(0.145 0 0);
+  --info: oklch(0.7 0.14 240);
+  --info-foreground: oklch(0.985 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -129,5 +154,15 @@
   }
   html {
     @apply font-sans;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
