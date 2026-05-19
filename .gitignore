@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code — skills are versioned in .agents/ (portable).
+# .claude/skills/ is a Windows-only junction to .agents/skills/ and breaks
+# when cloned on macOS/Linux. Re-link with: pnpm dlx skills add shadcn/ui
+.claude/skills/
+
+# personal claude code overrides (per-developer, not committed)
+.claude/settings.local.json
