@@ -1,0 +1,23 @@
+# Build artifacts
+.next
+.vercel
+out
+build
+coverage
+
+# Dependencies
+node_modules
+
+# Lockfiles
+pnpm-lock.yaml
+*.lock
+
+# Claude Code tooling — don't reformat skill content
+.agents
+.claude
+
+# Static assets
+public
+
+# Generated
+next-env.d.ts
