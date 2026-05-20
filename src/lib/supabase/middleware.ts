@@ -2,20 +2,21 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 import { env } from "@/lib/env";
+import type { Database } from "@/types/database";
 
 /**
  * Supabase session refresh helper for Next.js middleware.
  *
- * Reads + refreshes the session cookie on every request. The actual
- * redirect logic (unauthenticated → /login, no-org → /onboarding, etc.)
- * lives in the project's root middleware.ts and consumes this helper.
+ * Reads + refreshes the session cookie on every request. Redirect logic
+ * (unauthenticated → /login, no-org → /onboarding, etc.) lives in layouts
+ * per route group — middleware stays minimal to keep request latency low.
  *
  * See: Projects/StockFlow/Auth-Flow.md
  */
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
-  const supabase = createServerClient(
+  const supabase = createServerClient<Database>(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
