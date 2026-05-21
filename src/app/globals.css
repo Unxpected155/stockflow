@@ -56,90 +56,99 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* StockFlow palette: Deep Navy + Emerald.
+     Background is slate-50 (NOT pure white) — intentional anti-vanilla choice. */
+  --background: oklch(0.984 0.003 247.858); /* slate-50 */
+  --foreground: oklch(0.129 0.042 264.695); /* slate-950 */
+  --card: oklch(1 0 0); /* white — lifts off slate-50 background */
+  --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  /* StockFlow brand violet */
-  --primary: oklch(0.488 0.243 264.376);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  /* StockFlow chart palette */
-  --chart-1: oklch(0.65 0.15 240);
-  --chart-2: oklch(0.65 0.18 145);
-  --chart-3: oklch(0.65 0.22 10);
-  --chart-4: oklch(0.78 0.15 75);
-  --chart-5: oklch(0.6 0.22 295);
-  /* StockFlow status colors */
-  --success: oklch(0.65 0.18 145);
-  --success-foreground: oklch(0.985 0 0);
-  --warning: oklch(0.78 0.15 75);
-  --warning-foreground: oklch(0.145 0 0);
-  --info: oklch(0.65 0.15 240);
-  --info-foreground: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  /* Brand primary: deep navy (slate-900) */
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  /* Secondary surface: muted slate (used by shadcn for subtle backgrounds) */
+  --secondary: oklch(0.968 0.007 247.896); /* slate-100 */
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896); /* slate-100 */
+  --muted-foreground: oklch(0.446 0.043 257.281); /* slate-600 */
+  /* Accent: kept as a subtle surface for shadcn hover behavior.
+     Brand emerald lives in --success / --chart-3 — using it here would
+     turn every menu hover bright green. */
+  --accent: oklch(0.968 0.007 247.896); /* slate-100 */
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325); /* red-600 */
+  --border: oklch(0.929 0.013 255.508); /* slate-200 */
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.208 0.042 265.755); /* slate-900 navy focus */
+  /* StockFlow chart palette: navy → cyan → emerald → amber → indigo-muted */
+  --chart-1: oklch(0.208 0.042 265.755); /* slate-900 navy */
+  --chart-2: oklch(0.715 0.143 215.221); /* cyan-500 */
+  --chart-3: oklch(0.696 0.17 162.48); /* emerald-500 */
+  --chart-4: oklch(0.769 0.188 70.08); /* amber-500 */
+  --chart-5: oklch(0.673 0.182 276.935); /* indigo-400 muted */
+  /* StockFlow status colors — emerald is the brand accent surface here */
+  --success: oklch(0.696 0.17 162.48); /* emerald-500 */
+  --success-foreground: oklch(0.984 0.003 247.858);
+  --warning: oklch(0.769 0.188 70.08); /* amber-500 */
+  --warning-foreground: oklch(0.129 0.042 264.695);
+  --info: oklch(0.379 0.146 265.522); /* blue-900 */
+  --info-foreground: oklch(0.984 0.003 247.858);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.984 0.003 247.858); /* slate-50 */
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755); /* slate-900 navy */
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896); /* slate-100 */
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.208 0.042 265.755);
 }
 
+/* Dark mode is NOT in MVP (per Projects/StockFlow.md "MVP Non-Goals").
+   These tokens are kept aligned with the Navy+Emerald brand so that if dark
+   mode is added in a later phase, the brand stays consistent and we don't
+   accidentally re-introduce the deprecated violet primary. */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  /* StockFlow brand violet (dark) */
-  --primary: oklch(0.65 0.22 264.376);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.129 0.042 264.695); /* slate-950 */
+  --foreground: oklch(0.984 0.003 247.858); /* slate-50 */
+  --card: oklch(0.208 0.042 265.755); /* slate-900 */
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  /* Brand primary inverted: lighter slate so the button reads on dark bg */
+  --primary: oklch(0.929 0.013 255.508); /* slate-200 */
+  --primary-foreground: oklch(0.129 0.042 264.695); /* slate-950 */
+  --secondary: oklch(0.279 0.041 260.031); /* slate-800 */
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788); /* slate-400 */
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  /* StockFlow chart palette (dark) */
-  --chart-1: oklch(0.7 0.14 240);
-  --chart-2: oklch(0.7 0.16 145);
-  --chart-3: oklch(0.7 0.2 10);
-  --chart-4: oklch(0.78 0.15 75);
-  --chart-5: oklch(0.7 0.2 295);
-  /* StockFlow status colors (dark) */
-  --success: oklch(0.7 0.16 145);
-  --success-foreground: oklch(0.145 0 0);
-  --warning: oklch(0.78 0.15 75);
-  --warning-foreground: oklch(0.145 0 0);
-  --info: oklch(0.7 0.14 240);
-  --info-foreground: oklch(0.985 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --ring: oklch(0.704 0.04 256.788); /* slate-400 */
+  /* Chart palette tuned for dark backgrounds (slightly higher lightness) */
+  --chart-1: oklch(0.704 0.04 256.788); /* slate-400 */
+  --chart-2: oklch(0.789 0.143 215.221); /* cyan brighter */
+  --chart-3: oklch(0.769 0.17 162.48); /* emerald brighter */
+  --chart-4: oklch(0.828 0.188 70.08); /* amber brighter */
+  --chart-5: oklch(0.749 0.182 276.935); /* indigo brighter */
+  --success: oklch(0.769 0.17 162.48);
+  --success-foreground: oklch(0.129 0.042 264.695);
+  --warning: oklch(0.828 0.188 70.08);
+  --warning-foreground: oklch(0.129 0.042 264.695);
+  --info: oklch(0.673 0.182 276.935);
+  --info-foreground: oklch(0.984 0.003 247.858);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.929 0.013 255.508);
+  --sidebar-primary-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
 @layer base {
