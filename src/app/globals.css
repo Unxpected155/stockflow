@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -175,4 +176,86 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* StockFlow signature motion — used on auth pages.
+   Keyed-frames live outside @layer base because Tailwind v4's @theme/@layer
+   pipeline doesn't reliably hoist nested @keyframes. */
+
+@keyframes stockflow-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stockflow-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stockflow-glow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(3%, -2%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-card-in {
+  animation: stockflow-card-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-rise {
+  animation: stockflow-rise 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-glow-drift {
+  animation: stockflow-glow-drift 22s ease-in-out infinite;
+}
+
+/* Input focus signature — emerald underline draws left-to-right on focus.
+   Applied at the primitive level via the [data-slot="input"] attribute so
+   every form across the app inherits the signature. */
+[data-slot="input"] {
+  background-image: linear-gradient(
+    to right,
+    oklch(0.696 0.17 162.48),
+    oklch(0.696 0.17 162.48)
+  );
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  transition:
+    background-size 340ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+[data-slot="input"]:focus-visible {
+  background-size: 100% 1.5px;
+}
+
+/* When the field is invalid, the underline borrows the destructive token so
+   the focus signature mirrors the error state instead of fighting it. */
+[data-slot="input"][aria-invalid="true"] {
+  background-image: linear-gradient(
+    to right,
+    oklch(0.577 0.245 27.325),
+    oklch(0.577 0.245 27.325)
+  );
 }
