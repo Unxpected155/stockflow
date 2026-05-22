@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardKicker } from "@/features/auth/components/card-kicker";
 
 export const metadata = {
   title: "Check your email",
@@ -26,6 +27,7 @@ export default async function CheckEmailPage({
   return (
     <Card className="shadow-sm">
       <CardHeader className="items-center text-center">
+        <CardKicker label="/verify" />
         <div className="mx-auto flex size-10 items-center justify-center rounded-full bg-success/10 text-success">
           <MailCheck className="size-5" aria-hidden="true" />
         </div>

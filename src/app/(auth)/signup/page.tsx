@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardKicker } from "@/features/auth/components/card-kicker";
 import { SignupForm } from "@/features/auth/components/signup-form";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function SignupPage() {
   return (
     <Card className="shadow-sm">
       <CardHeader className="text-center">
+        <CardKicker label="/signup" />
         <CardTitle className="text-2xl">Create your account</CardTitle>
         <CardDescription>Start managing inventory in minutes.</CardDescription>
       </CardHeader>

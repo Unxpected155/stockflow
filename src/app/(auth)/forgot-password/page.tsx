@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardKicker } from "@/features/auth/components/card-kicker";
 import { ForgotPasswordForm } from "@/features/auth/components/forgot-password-form";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function ForgotPasswordPage() {
   return (
     <Card className="shadow-sm">
       <CardHeader className="text-center">
+        <CardKicker label="/recovery" />
         <CardTitle className="text-2xl">Reset your password</CardTitle>
         <CardDescription>
           Enter your email and we&apos;ll send you a reset link.

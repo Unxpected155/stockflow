@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardKicker } from "@/features/auth/components/card-kicker";
 import { LoginForm } from "@/features/auth/components/login-form";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function LoginPage() {
   return (
     <Card className="shadow-sm">
       <CardHeader className="text-center">
+        <CardKicker label="/login" />
         <CardTitle className="text-2xl">Sign in to StockFlow</CardTitle>
         <CardDescription>
           Welcome back. Enter your credentials to continue.

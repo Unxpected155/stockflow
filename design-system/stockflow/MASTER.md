@@ -53,10 +53,12 @@ Background is slate-tinted (not pure white). Brand primary is deep navy; emerald
 
 ## Typography
 
-- **Sans (body + headings):** Geist Sans (already loaded in `src/app/layout.tsx`)
+- **Sans (body + headings):** Plus Jakarta Sans (variable font, weights 300–700, via `next/font/google` in `src/app/layout.tsx`)
 - **Mono (code, numerical KPIs):** Geist Mono
 
-Geist was chosen at project init; Fira Code/Sans (suggested by the design-system generator) is **not** adopted. Keep Geist for the entire MVP.
+Geist Sans (project default) was rejected by Gabriel — felt too neutral / system-ui-like. Plus Jakarta Sans replaces it: friendly modern SaaS aesthetic, humanist letterforms (double-storey 'a'), used by Resend / Cal.com / Vercel-adjacent products. Single-family setup keeps the bundle small and headings/body consistent. Chosen 2026-05-21 via `ui-ux-pro-max` comparison.
+
+The `--font-sans` CSS variable on `<html>` is injected by next/font with the same name (no bridge rename in `globals.css` — `@theme inline --font-sans: var(--font-sans)` now resolves correctly).
 
 **Type scale:**
 | Use | Tailwind class | Notes |
